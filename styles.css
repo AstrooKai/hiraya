@@ -1,0 +1,40 @@
+/* Typography */
+h1,
+h2,
+h3,
+.navbar-brand {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* The header and all sections will have a minimum height of 100dvh and be centered vertically */
+header,
+section {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+}
+
+/* The container inside the header and all sections will have a width of 100% */
+header > .container,
+section > .container {
+    width: 100%;
+}
+
+/* Hero image */
+.hero-img {
+    max-height: 450px;
+    object-fit: contain;
+}
+
+/* Mobile responsiveness for the hero image */
+@media (max-width: 992px) {
+    .hero-img {
+        max-height: 360px;
+    }
+}
+
+/* Remove underline from all links and buttons */
+a,
+.btn-link {
+    text-decoration: none;
+}
