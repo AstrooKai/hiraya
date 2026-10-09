@@ -1,4 +1,3 @@
-/* Typography */
 h1,
 h2,
 h3,
@@ -6,65 +5,35 @@ h3,
     font-family: Georgia, "Times New Roman", serif;
 }
 
-/* The header and all sections will have a minimum height of 100dvh and be centered vertically */
+header {
+    min-height: 100dvh;
+}
+
 header,
 section {
-    min-height: 100dvh;
-    padding-top: 76px !important; /* Compensation for the fixed navbar */
+    padding-top: 76px !important;
     scroll-margin-top: 76px;
     display: flex;
     align-items: center;
 }
 
-/* The container inside the header and all sections will have a width of 100% */
 header > .container,
 section > .container {
     width: 100%;
 }
 
-/* Hero image */
 .hero-img {
     max-height: 450px;
     object-fit: contain;
 }
 
-/* Mobile responsiveness for the hero image */
 @media (max-width: 992px) {
     .hero-img {
         max-height: 360px;
     }
 }
 
-/* Tablet only responsiveness */
-@media (min-width: 768px) and (max-width: 991.98px) {
-    header,
-    section {
-        min-height: auto;
-    }
-}
-
-/* Remove underline from all links and buttons */
 a,
 .btn-link {
     text-decoration: none;
-}
-
-/* Responsive hero background */
-.hero-section {
-    background-image: url("images/hero-bg-sm.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-@media (min-width: 768px) {
-    .hero-section {
-        background-image: url("images/hero-bg-md.jpg");
-    }
-}
-
-@media (min-width: 992px) {
-    .hero-section {
-        background-image: url("images/hero-bg-lg.png");
-    }
 }
