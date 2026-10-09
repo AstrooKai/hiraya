@@ -12,7 +12,7 @@
         />
         <link rel="stylesheet" href="styles.css" />
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg bg-body border-bottom fixed-top">
             <div class="container-fluid">
@@ -42,10 +42,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <main class="flex-grow-1">
         <!-- Header/Hero Section -->
         <header class="bg-body-tertiary py-5">
             <div class="container py-lg-4">
@@ -108,7 +112,15 @@
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="fw-semibold">&#8369;6,990</span>
-                                    <button class="btn btn-dark btn-sm">Add to cart</button>
+                                    <button
+                                        type="button"
+                                        class="btn btn-dark btn-sm add-to-cart"
+                                        data-id="1"
+                                        data-name="Alon Diver 42"
+                                        data-price="6990"
+                                    >
+                                        Add to cart
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +136,15 @@
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="fw-semibold">&#8369;5,490</span>
-                                    <button type="button" class="btn btn-dark btn-sm">Add to cart</button>
+                                    <button
+                                        type="button"
+                                        class="btn btn-dark btn-sm add-to-cart"
+                                        data-id="2"
+                                        data-name="Mutya Dress 38"
+                                        data-price="5490"
+                                    >
+                                        Add to cart
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +160,15 @@
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="fw-semibold">&#8369;4,290</span>
-                                    <button type="button" class="btn btn-dark btn-sm">Add to cart</button>
+                                    <button
+                                        type="button"
+                                        class="btn btn-dark btn-sm add-to-cart"
+                                        data-id="3"
+                                        data-name="Tala Pilot 40"
+                                        data-price="4290"
+                                    >
+                                        Add to cart
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -156,12 +184,21 @@
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="fw-semibold">&#8369;7,890</span>
-                                    <button type="button" class="btn btn-dark btn-sm">Add to cart</button>
+                                    <button
+                                        type="button"
+                                        class="btn btn-dark btn-sm add-to-cart"
+                                        data-id="4"
+                                        data-name="Tanglaw Steel 36"
+                                        data-price="7890"
+                                    >
+                                        Add to cart
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div id="message" class="alert mt-4 d-none" role="status"></div>
             </div>
         </section>
         <!-- Hiraya Promise Section -->
@@ -197,8 +234,9 @@
                 </p>
             </div>
         </section>
+        </main>
         <!-- Footer -->
-        <footer class="bg-dark text-light py-4">
+        <footer class="bg-dark text-light py-4 mt-auto">
             <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
                 <span>&copy; 2026 Hiraya Watch Co.<br />Crafted with Distinction in the Philippines</span>
                 <span>
@@ -213,5 +251,7 @@
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             crossorigin="anonymous"
         ></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>

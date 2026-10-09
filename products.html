@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Hiraya Watch Co. | Products</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-body border-bottom fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold fs-3" href="index.html">Hiraya</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="products.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Products -->
+        <main class="container py-5 mt-5 flex-grow-1">
+            <h1 class="display-5 fw-bold mb-4">The Curated Collection</h1>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card h-100">
+                        <img src="images/alon-diver-42.jpg" alt="Alon Diver 42 watch" class="card-img-top" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Alon Diver 42</h5>
+                            <p class="card-text flex-grow-1">
+                                Automatic movement. 200m depth-rated ceramic bezel with luminous indices.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-semibold">&#8369;6,990</span>
+                                <button
+                                    type="button"
+                                    class="btn btn-dark btn-sm add-to-cart"
+                                    data-id="1"
+                                    data-name="Alon Diver 42"
+                                    data-price="6990"
+                                >
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card h-100">
+                        <img src="images/mutya-dress-38.jpg" alt="Mutya Dress 38 watch" class="card-img-top" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Mutya Dress 38</h5>
+                            <p class="card-text flex-grow-1">
+                                Ultra-slim silhouette with Italian calfskin strap and domed sapphire crystal.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-semibold">&#8369;5,490</span>
+                                <button
+                                    type="button"
+                                    class="btn btn-dark btn-sm add-to-cart"
+                                    data-id="2"
+                                    data-name="Mutya Dress 38"
+                                    data-price="5490"
+                                >
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card h-100">
+                        <img src="images/tala-pilot-40.jpg" alt="Tala Pilot 40 watch" class="card-img-top" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Tala Pilot 40</h5>
+                            <p class="card-text flex-grow-1">
+                                Aviation-inspired dial with SuperLuminova markers and precision quartz.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-semibold">&#8369;4,290</span>
+                                <button
+                                    type="button"
+                                    class="btn btn-dark btn-sm add-to-cart"
+                                    data-id="3"
+                                    data-name="Tala Pilot 40"
+                                    data-price="4290"
+                                >
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card h-100">
+                        <img src="images/tanglaw-steel-36.jpg" alt="Tanglaw Steel 36 watch" class="card-img-top" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Tanglaw Steel 36</h5>
+                            <p class="card-text flex-grow-1">
+                                Brushed 316L stainless steel bracelet with sunburst dial and exhibition caseback.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-semibold">&#8369;7,890</span>
+                                <button
+                                    type="button"
+                                    class="btn btn-dark btn-sm add-to-cart"
+                                    data-id="4"
+                                    data-name="Tanglaw Steel 36"
+                                    data-price="7890"
+                                >
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="message" class="alert mt-4 d-none" role="status"></div>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-dark text-light py-4 mt-auto">
+            <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+                <span>&copy; 2026 Hiraya Watch Co.<br />Crafted with Distinction in the Philippines</span>
+                <span>
+                    <a href="products.html" class="link-light me-3">Products</a>
+                    <a href="reviews.html" class="link-light me-3">Reviews</a>
+                    <a href="contact.html" class="link-light">Contact</a>
+                </span>
+            </div>
+        </footer>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
