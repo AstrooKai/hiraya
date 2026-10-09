@@ -1,15 +1,15 @@
-// We use $(document).ready so our code only runs after the page is fully loaded
+// Runs once the page is fully loaded
 $(document).ready(function () {
 
-    // 1. Get the cart from the browser's local storage.
-    // If it's empty or doesn't exist, we start with an empty array []
+    // Get the cart from the browser's local storage
+    // If it's empty or doesn't exist, start with an empty array []
     let cartString = localStorage.getItem("cart");
     let cart = [];
     if (cartString !== null) {
         cart = JSON.parse(cartString);
     }
 
-    // 2. Get the reviews from local storage.
+    // Get the reviews from local storage
     let reviewString = localStorage.getItem("reviews");
     let reviews = [];
     if (reviewString !== null) {
@@ -22,18 +22,18 @@ $(document).ready(function () {
         ];
     }
 
-    // A simple function to show a message to the user
+    // Show a message to the user
     function showMessage(message, type) {
         // Remove old colors, add the new color, set the text
         $("#message").removeClass("d-none alert-success alert-danger").addClass("alert-" + type).text(message);
     }
 
-    // A simple function to format numbers as Philippine Peso
+    // Format numbers as Philippine Peso
     function formatPeso(amount) {
         return "\u20B1" + amount.toFixed(2); // .toFixed(2) ensures it has 2 decimal places
     }
 
-    // A function to count how many items are in the cart
+    // Count how many items are in the cart
     function updateCartCount() {
         let count = 0;
         // Loop through everything in the cart
@@ -44,16 +44,16 @@ $(document).ready(function () {
         $("#cartCount").text(count);
     }
 
-    // A function to save the cart so it doesn't disappear when you refresh
+    // Save the cart so it doesn't disappear when user refreshes
     function saveCart() {
         let stringToSave = JSON.stringify(cart);
         localStorage.setItem("cart", stringToSave);
-        updateCartCount(); // Update the navbar number whenever we save
+        updateCartCount(); // Update the navbar number whenever saved
     }
 
-    // This happens when the user clicks the "Add to cart" button on a product
+    // Runs when user clicks "Add to Cart" button on a product
     $(".add-to-cart").click(function () {
-        // Get information from the button that was clicked
+        // Get info from button that was clicked
         let id = Number($(this).data("id"));
         let name = $(this).data("name");
         let price = Number($(this).data("price"));
@@ -65,22 +65,22 @@ $(document).ready(function () {
                 // If it is, just add 1 to the quantity
                 cart[i].qty = cart[i].qty + 1;
                 found = true;
-                break; // Stop looking because we found it
+                break; // Stop looking because when found
             }
         }
 
-        // If we looked through the whole cart and didn't find it, add it as a new item
+        // If looked through the whole cart and didn't find it, add it as a new item
         if (found === false) {
             let newItem = { id: id, name: name, price: price, qty: 1 };
             cart.push(newItem);
         }
 
-        // Save the updated cart and tell the user it was successful
+        // Save the updated cart and notify user
         saveCart();
         showMessage(name + " was added to your cart.", "success");
     });
 
-    // This function builds the table inside the Cart page
+    // Builds the table inside the Cart page
     function displayCart() {
         let rowsHtml = "";
         let totalAmount = 0;
@@ -116,73 +116,73 @@ $(document).ready(function () {
             `;
         }
 
-        // Put our HTML inside the table
+        // Put the HTML inside the table
         $("#cart-items").html(rowsHtml);
         // Show the total price
         $("#total").text(formatPeso(totalAmount));
     }
 
-    // Only run this code if we are on the Cart page (where #cart-items exists)
+    // Run only if on Cart page (where #cart-items exists)
     if ($("#cart-items").length > 0) {
 
-        // When the user clicks the '+' button
+        // When user clicks '+' button, increase quantity
         $("#cart-items").on("click", ".increase", function () {
             let index = Number($(this).attr("data-index"));
             cart[index].qty = cart[index].qty + 1;
             saveCart();
-            displayCart(); // Redraw the table
+            displayCart();
         });
 
-        // When the user clicks the '-' button
+        // When user clicks '-' button, decrease quantity
         $("#cart-items").on("click", ".decrease", function () {
             let index = Number($(this).attr("data-index"));
             cart[index].qty = cart[index].qty - 1;
-            
-            // If the quantity drops to zero, remove the item completely
+
+            // If quantity drops to zero, remove item completely
             if (cart[index].qty === 0) {
-                cart.splice(index, 1); // splice removes an item from the array
+                cart.splice(index, 1); // Splice removes an item from the array
             }
             saveCart();
-            displayCart(); // Redraw the table
+            displayCart();
         });
 
-        // When the user clicks the 'Remove' button
+        // When user clicks 'Remove' button, remove item from cart
         $("#cart-items").on("click", ".remove", function () {
             let index = Number($(this).attr("data-index"));
             cart.splice(index, 1);
             saveCart();
-            displayCart(); // Redraw the table
+            displayCart();
         });
 
-        // When the user clicks 'Clear Cart'
+        // When user clicks 'Clear Cart', empty cart and redraw table
         $("#clear-cart").click(function () {
             if (cart.length === 0) {
                 showMessage("Your cart is already empty.", "danger");
                 return;
             }
-            cart = []; // empty the array
+            cart = []; // Empty the array
             saveCart();
             displayCart();
             showMessage("Your cart was cleared.", "success");
         });
 
-        // When the user clicks 'Place Order'
+        // When user clicks 'Place Order', empty cart and redraw table
         $("#place-order").click(function () {
             if (cart.length === 0) {
                 showMessage("Your cart is empty. Add a watch first.", "danger");
                 return;
             }
-            cart = []; // empty the array
+            cart = []; // Empty the array
             saveCart();
             displayCart();
             showMessage("Thank you! Your order was placed successfully.", "success");
         });
 
-        // Actually display the cart when the page first loads
+        // Display the cart when the page first loads
         displayCart();
     }
 
-    // This function builds the reviews on the Reviews page
+    // Builds the reviews on the Reviews page
     function displayReviews() {
         let reviewsHtml = "";
 
@@ -217,7 +217,7 @@ $(document).ready(function () {
                 }
             }
 
-            // Build the HTML for the review card using a template literal (backticks)
+            // Build the HTML for the review card using a template literal
             reviewsHtml += `
                 <div class='card border mb-3'>
                     <div class='card-body'>
@@ -242,13 +242,14 @@ $(document).ready(function () {
         $("#reviewCount").text(reviews.length);
     }
 
-    // Only run this code if we are on the Reviews page
+    // Runs only if on the Reviews page, where #reviewForm exists
     if ($("#reviewForm").length > 0) {
 
-        // When the user clicks 'Submit Review'
+        // When user clicks 'Submit Review',
         $("#reviewForm").submit(function (event) {
-            event.preventDefault(); // Stop the page from reloading
+            event.preventDefault(); // Stop page from reloading
 
+            // Get data from the form
             let name = $("#reviewerName").val().trim();
             let rating = Number($("#rating").val());
             let reviewText = $("#reviewText").val().trim();
@@ -271,7 +272,7 @@ $(document).ready(function () {
                 date: today
             };
             reviews.push(newReview);
-            
+
             // Save to local storage
             localStorage.setItem("reviews", JSON.stringify(reviews));
 
@@ -280,27 +281,28 @@ $(document).ready(function () {
             showMessage("Thank you! Your review was submitted successfully.", "success");
         });
 
-        // When the user clicks the 'Delete' button on a review
+        // When user clicks 'Delete' button on a review, remove it
         $("#reviewsList").on("click", ".delete-review", function () {
-            let index = Number($(this).attr("data-index"));
+            let index = Number($(this).attr("data-index")); // Get the index of the review to delete
             reviews.splice(index, 1); // Remove the review from the array
-            localStorage.setItem("reviews", JSON.stringify(reviews)); // Save
+            localStorage.setItem("reviews", JSON.stringify(reviews)); // Save to local storage
 
             displayReviews(); // Redraw the reviews
             showMessage("Review deleted successfully.", "success");
         });
 
-        // Actually display the reviews when the page first loads
+        // Display the reviews when the page first loads
         displayReviews();
     }
 
     // Only run this code if we are on the Contact page
     if ($("#contactForm").length > 0) {
-        
-        // When the user clicks 'Send message'
+
+        // When user clicks 'Send message'
         $("#contactForm").submit(function (event) {
             event.preventDefault(); // Stop the page from reloading
 
+            // Get data from the form
             let name = $("#contactName").val().trim();
             let email = $("#contactEmail").val().trim();
             let message = $("#contactMessage").val().trim();
@@ -316,6 +318,6 @@ $(document).ready(function () {
         });
     }
 
-    // Make sure the cart count in the navbar is correct on every page
+    // Ensures cart count in the navbar is always correct
     updateCartCount();
 });
