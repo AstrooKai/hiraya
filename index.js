@@ -222,11 +222,11 @@ $(document).ready(function () {
                 <div class='card border mb-3'>
                     <div class='card-body'>
                         <div class='d-flex justify-content-between align-items-center mb-2'>
-                            <h5 class='card-title fw-bold'>${review.name}</h5>
+                            <h5 class='card-title fw-bold'>${$("<div>").text(review.name).html()}</h5>
                             <button class='btn btn-outline-danger btn-sm delete-review' data-index='${i}'>Delete</button>
                         </div>
                         <h5 class='text-warning'>${stars}</h5>
-                        <p class='card-text'>${review.comment}</p>
+                        <p class='card-text'>${$("<div>").text(review.comment).html()}</p>
                         <small class='text-secondary'>Posted on: ${review.date}</small>
                     </div>
                 </div>
